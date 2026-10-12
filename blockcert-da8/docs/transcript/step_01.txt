@@ -1,0 +1,11 @@
+# Step 1: Deploy DigitalIdentity (DA-1 Q2) and CertificateRegistry (DA-8)
+$ forge create src/DigitalIdentity.sol:DigitalIdentity
+  Deployed to : 0x5FbDB2315678afecb367f032d93F642f64180aa3   [DigitalIdentity]
+  Tx hash     : 0x9444bb134cd7bb77ec93efd17b7e9a7b72640f68a5f6df1858061411f078ef49
+  Gas used    : 478154
+$ forge create src/CertificateRegistry.sol:CertificateRegistry
+  Deployed to : 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512   [CertificateRegistry]
+  Tx hash     : 0x1a1c87b477254fc689bb7f8496324c7ececbe1d0bd36d2b43dfa51e275615ea0
+  Gas used    : 2211787
+$ cast call CertificateRegistry 'totalBlocks()(uint256)'
+  1   <- genesis block only

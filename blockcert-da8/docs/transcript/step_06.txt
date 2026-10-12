@@ -1,0 +1,15 @@
+# Step 6: Revoke a certificate (history preserved, chain still valid)
+$ cast send CertificateRegistry 'revokeCertificate(string,string)' CERT-103 'Degree withdrawn by academic council'   --from REGISTRAR
+  status      : SUCCESS
+  block       : 8
+  tx hash     : 0x79e596bef4051a1f50e45c9b6d3531c7b24e7b16fe709a2b3a43984e493905d6
+  gas used    : 38771
+  event       : CertificateRevoked
+$ cast call CertificateRegistry 'verifyCertificate(string,string,string,uint16)' CERT-103 CHARLIE 'B.TECH CYBER SECURITY' 2027
+  true
+  true
+  REGISTRAR
+  ^ authentic=true (record intact), revoked=true
+$ cast call CertificateRegistry 'verifyChainIntegrity()' 
+  true
+  0

@@ -1,0 +1,12 @@
+{
+  "deploy DigitalIdentity": 478154,
+  "deploy CertificateRegistry": 2211787,
+  "registerUser": 138665,
+  "authorizeIssuer": 50815,
+  "issueCertificate #1": 311250,
+  "issueCertificate #2": 311226,
+  "issueCertificate #3": 311250,
+  "revokeCertificate": 38771,
+  "deploy RegistryHarness": 2308336,
+  "auditChain (tampered)": 76051
+}

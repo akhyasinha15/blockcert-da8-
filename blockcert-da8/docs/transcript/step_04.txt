@@ -1,0 +1,35 @@
+# Step 4: Issue certificates (each becomes a hash-linked block)
+$ cast send CertificateRegistry 'issueCertificate(string,string,string,uint16,string)' CERT-101 ALICE 'B.TECH COMPUTER SCIENCE' 2027 QmadtCXH7euAdrDxxt7jzBNy5PWpP7YQb6JkqVmLU9BtUi   --from REGISTRAR
+  status      : SUCCESS
+  block       : 5
+  tx hash     : 0x3c3d7e58d142bc1e50266ea2d201c286e8f1aa5362f3dca9ffbfad4fca2a7b59
+  gas used    : 311250
+  event       : CertificateIssued
+      index        = 1
+      certId       = "CERT-101"
+      studentName  = "ALICE"
+      blockHash    = 0x0fec4ce87d3e59d7e29c697d58bb6d3c34f1f13b4d2ac3544f1acf820a239bc9
+      previousHash = 0x8229fdb3fd488fbbd969b0f6936b2957ae44145c2edcd0ba5b6cc563d5ada289
+      ipfsCid      = "QmadtCXH7euAdrDxxt7jzBNy5PWpP7YQb6JkqVmLU9BtUi"
+
+$ cast send CertificateRegistry 'issueCertificate(string,string,string,uint16,string)' CERT-102 BOB 'B.TECH COMPUTER SCIENCE' 2027 QmYkSpJyP6SeHcKMk4o15hQbi2tBREFmwxT7gKkPSqLn6E   --from REGISTRAR
+  status      : SUCCESS
+  block       : 6
+  tx hash     : 0xcbc3f8d01d0e3cc4d36fadfe5e2b58ba1000325f56b0e67f4ede2c2d72a65a55
+  gas used    : 311226
+  event       : CertificateIssued
+      index        = 2
+      certId       = "CERT-102"
+      studentName  = "BOB"
+      blockHash    = 0x566454e7df37025e93bb0fed74d88667f85dcc07b203f440f24dcb356704f70f
+      previousHash = 0x0fec4ce87d3e59d7e29c697d58bb6d3c34f1f13b4d2ac3544f1acf820a239bc9
+      ipfsCid      = "QmYkSpJyP6SeHcKMk4o15hQbi2tBREFmwxT7gKkPSqLn6E"
+$ cast send CertificateRegistry 'issueCertificate(string,string,string,uint16,string)' CERT-103 CHARLIE 'B.TECH CYBER SECURITY' 2027 QmR95Ed7EScrgwjLL3T2QBshZtpY2vBdunNYA8FTSoqAU9   --from REGISTRAR
+  status      : SUCCESS
+  block       : 7
+  tx hash     : 0xf690d10ff49f646355080628a3da5f26dfb84421b1a4b4cf4b0cd898cbd9debd
+  gas used    : 311250
+  event       : CertificateIssued
+$ cast send CertificateRegistry 'issueCertificate(string,string,string,uint16,string)' CERT-101 MALLORY 'B.TECH COMPUTER SCIENCE' 2027 QmDup   --from REGISTRAR
+  status      : REVERTED
+  reason      : Error: Certificate ID already exists!

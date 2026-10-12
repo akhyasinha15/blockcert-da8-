@@ -1,0 +1,8 @@
+[
+  { "certId": "CERT-101", "studentName": "ALICE",   "degree": "B.TECH COMPUTER SCIENCE",  "yearOfGraduation": 2027, "cgpa": 9.12 },
+  { "certId": "CERT-102", "studentName": "BOB",     "degree": "B.TECH COMPUTER SCIENCE",  "yearOfGraduation": 2027, "cgpa": 8.45 },
+  { "certId": "CERT-103", "studentName": "CHARLIE", "degree": "B.TECH CYBER SECURITY",    "yearOfGraduation": 2027, "cgpa": 8.80 },
+  { "certId": "CERT-104", "studentName": "DAVE",    "degree": "B.TECH INFORMATION TECH.", "yearOfGraduation": 2026, "cgpa": 7.95 },
+  { "certId": "CERT-105", "studentName": "EVE",     "degree": "M.TECH DATA SCIENCE",      "yearOfGraduation": 2026, "cgpa": 9.40 },
+  { "certId": "CERT-106", "studentName": "FRANK",   "degree": "B.TECH ELECTRONICS",       "yearOfGraduation": 2025, "cgpa": 8.10 }
+]

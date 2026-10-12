@@ -1,0 +1,18 @@
+# Step 5: Read the chain and verify certificates
+$ cast call CertificateRegistry 'totalBlocks()(uint256)' 
+  4
+$ cast call CertificateRegistry 'getCertificate(string)' CERT-102
+  ("CERT-102", "BOB", "B.TECH COMPUTER SCIENCE", 2027, "QmYkSpJyP6SeHcKMk4o15hQbi2tBREFmwxT7gKkPSqLn6E", REGISTRAR, 0x566454e7df37025e93bb0fed74d88667f85dcc07b203f440f24dcb356704f70f, 0x0fec4ce87d3e59d7e29c697d58bb6d3c34f1f13b4d2ac3544f1acf820a239bc9, 1791794093 [1.791e9], false)
+$ cast call CertificateRegistry 'verifyCertificate(string,string,string,uint16)' CERT-102 BOB 'B.TECH COMPUTER SCIENCE' 2027
+  true
+  false
+  REGISTRAR
+  ^ authentic=true, revoked=false, issuer=REGISTRAR
+$ cast call CertificateRegistry 'verifyCertificate(string,string,string,uint16)' CERT-102 BOB 'B.TECH COMPUTER SCIENCE' 2030
+  false
+  false
+  REGISTRAR
+  ^ forged graduation year -> authentic=false
+$ cast call CertificateRegistry 'verifyChainIntegrity()' 
+  true
+  0

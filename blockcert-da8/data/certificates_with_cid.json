@@ -1,0 +1,56 @@
+[
+  {
+    "certId": "CERT-101",
+    "studentName": "ALICE",
+    "degree": "B.TECH COMPUTER SCIENCE",
+    "yearOfGraduation": 2027,
+    "cgpa": 9.12,
+    "ipfsCid": "QmadtCXH7euAdrDxxt7jzBNy5PWpP7YQb6JkqVmLU9BtUi",
+    "sha256": "f7130abdd718987411cfc175483286242a79eb414e1c32a1817d634c06a516bc"
+  },
+  {
+    "certId": "CERT-102",
+    "studentName": "BOB",
+    "degree": "B.TECH COMPUTER SCIENCE",
+    "yearOfGraduation": 2027,
+    "cgpa": 8.45,
+    "ipfsCid": "QmYkSpJyP6SeHcKMk4o15hQbi2tBREFmwxT7gKkPSqLn6E",
+    "sha256": "5a9ea56d2acdfbd868e1a76b7d1102e48b8d4754d549d163126ecc3e3c8ef298"
+  },
+  {
+    "certId": "CERT-103",
+    "studentName": "CHARLIE",
+    "degree": "B.TECH CYBER SECURITY",
+    "yearOfGraduation": 2027,
+    "cgpa": 8.8,
+    "ipfsCid": "QmR95Ed7EScrgwjLL3T2QBshZtpY2vBdunNYA8FTSoqAU9",
+    "sha256": "104d804ede4a60b9a783219338d471bcc9baa3b918ab9f42961985f966dccebd"
+  },
+  {
+    "certId": "CERT-104",
+    "studentName": "DAVE",
+    "degree": "B.TECH INFORMATION TECH.",
+    "yearOfGraduation": 2026,
+    "cgpa": 7.95,
+    "ipfsCid": "QmUZ57HYu8kVt6cDzT26ohLhqgiX9NsU8qDPhP3h3kFSAm",
+    "sha256": "ef271d5907565c25ee690639eca5c3802e8b9062f26330a09ed03deaebaef581"
+  },
+  {
+    "certId": "CERT-105",
+    "studentName": "EVE",
+    "degree": "M.TECH DATA SCIENCE",
+    "yearOfGraduation": 2026,
+    "cgpa": 9.4,
+    "ipfsCid": "QmSSxGqzAUNSqkuxASUp6RaJcJLjP6MHD4ehyvvCGHXJjx",
+    "sha256": "a09699ca216978ec374b09c2f864ef1ac722db151f048cd4e91f0d584c69f021"
+  },
+  {
+    "certId": "CERT-106",
+    "studentName": "FRANK",
+    "degree": "B.TECH ELECTRONICS",
+    "yearOfGraduation": 2025,
+    "cgpa": 8.1,
+    "ipfsCid": "QmdAsKi6tRyyLSAW2rm9FsHNSTT2A9F5n64XaJLrfGE6NE",
+    "sha256": "52c40a968b24d595571fd09e2928e6c0051bbf5940818c5be1976490a5913c5b"
+  }
+]

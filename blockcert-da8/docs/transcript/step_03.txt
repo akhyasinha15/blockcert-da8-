@@ -1,0 +1,13 @@
+# Step 3: Access control: authorise issuers (identity check enforced)
+$ cast send CertificateRegistry 'authorizeIssuer(address)' 0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65   --from ADMIN
+  status      : REVERTED
+  reason      : Error: Issuer must have a registered digital identity.
+$ cast send CertificateRegistry 'authorizeIssuer(address)' 0x70997970C51812dc3A010C7d01b50e0d17dc79C8   --from ADMIN
+  status      : SUCCESS
+  block       : 4
+  tx hash     : 0xa5324a2ed066cbd75612a3922c9c452b6a3dfdfab29367632f8619af9ee3467b
+  gas used    : 50815
+  event       : IssuerAuthorized
+$ cast send CertificateRegistry 'issueCertificate(string,string,string,uint16,string)' CERT-999 MALLORY B.TECH 2027 QmFake   --from STRANGER
+  status      : REVERTED
+  reason      : Access Denied: Caller is not an authorised issuer.

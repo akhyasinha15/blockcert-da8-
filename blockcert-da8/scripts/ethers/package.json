@@ -1,0 +1,9 @@
+{
+  "name": "blockcert-ethers-client",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ethers.js v6 client for the DA-8 CertificateRegistry",
+  "scripts": { "start": "node client.mjs" },
+  "dependencies": { "ethers": "^6.13.0" }
+}

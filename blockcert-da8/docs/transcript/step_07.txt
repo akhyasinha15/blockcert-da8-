@@ -1,0 +1,52 @@
+# Step 7: Tamper detection on a corrupted copy of the registry (test harness)
+$ forge create test/mocks/RegistryHarness.sol:RegistryHarness
+  Deployed to : 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9   [RegistryHarness]
+  Tx hash     : 0x37773bd55ea1c204f925bcde9c6c9bae6dea2a180f5104fa25979923e6ce44f9
+  Gas used    : 2308336
+$ cast send RegistryHarness 'authorizeIssuer(address)' 0x70997970C51812dc3A010C7d01b50e0d17dc79C8   --from ADMIN
+  status      : SUCCESS
+  block       : 10
+  tx hash     : 0x881b8d0bfb2c6358f74bc1c24e4324cba702708fd5ee7af6bd94558d07c09e93
+  gas used    : 50815
+  event       : IssuerAuthorized
+$ cast send RegistryHarness 'issueCertificate(string,string,string,uint16,string)' CERT-101 ALICE 'B.TECH COMPUTER SCIENCE' 2027 QmadtCXH7euAdrDxxt7jzBNy5PWpP7YQb6JkqVmLU9BtUi   --from REGISTRAR
+  status      : SUCCESS
+  block       : 11
+  tx hash     : 0x663656c3cc715d292268b05ae74d900e449315636ae45f8600b8c955ff170f99
+  gas used    : 311250
+  event       : CertificateIssued
+$ cast send RegistryHarness 'issueCertificate(string,string,string,uint16,string)' CERT-102 BOB 'B.TECH COMPUTER SCIENCE' 2027 QmYkSpJyP6SeHcKMk4o15hQbi2tBREFmwxT7gKkPSqLn6E   --from REGISTRAR
+  status      : SUCCESS
+  block       : 12
+  tx hash     : 0x0b73f438a5816c9faf21e12f2dc1d7f4255475c288ac17d63fce7680373ef695
+  gas used    : 311226
+  event       : CertificateIssued
+$ cast send RegistryHarness 'issueCertificate(string,string,string,uint16,string)' CERT-103 CHARLIE 'B.TECH CYBER SECURITY' 2027 QmR95Ed7EScrgwjLL3T2QBshZtpY2vBdunNYA8FTSoqAU9   --from REGISTRAR
+  status      : SUCCESS
+  block       : 13
+  tx hash     : 0x307486232d1b3ee5ef9f780e843e667f848450aafa132964c3177caee41627f0
+  gas used    : 311250
+  event       : CertificateIssued
+$ cast call RegistryHarness 'verifyChainIntegrity()' 
+  true
+  0
+  ^ chain intact before the attack
+
+# attacker silently edits block 2 (BOB -> MALLORY) directly in storage
+$ cast send RegistryHarness 'corruptStudentName(uint256,string)' 2 MALLORY   --from ADMIN
+  status      : SUCCESS
+  block       : 14
+  tx hash     : 0x6a010527da3ec2bcd04e4a1d2cfa29ef2b36e062205e76dd6712d8306f3c56e1
+  gas used    : 29848
+$ cast call RegistryHarness 'verifyChainIntegrity()' 
+  false
+  2
+  ^ valid=false, firstBadIndex=2  -> blockchain compromised
+$ cast send RegistryHarness 'auditChain()'    --from ADMIN
+  status      : SUCCESS
+  block       : 15
+  tx hash     : 0x33de91031c529e43619a7eeb1bcd4832d36d35990f075d0de876c6469a67f29e
+  gas used    : 76051
+  event       : TamperAlert
+      TamperAlert(index=2, certId="CERT-102")
+      message = "Blockchain compromised: block hash or link mismatch."
